@@ -1,0 +1,22 @@
+<head>
+    <script>
+    var message = null;
+    function ajaxCallToServer() {
+        var responseText = document.getElementById('response');
+        var xmlhttp = new XMLHttpRequest(); var url = "something"
+        xmlhttp.open("GET", url, true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.onload = (res) => {
+            console.log(res['target']['response']);
+            message = res['target']['response'];
+            responseText.innerHTML = message;
+    
+        };
+        xmlhttp.send();
+    }
+    </script>
+    </head>
+    ...
+    <body>
+        <p id="response"></p>
+    </body>
